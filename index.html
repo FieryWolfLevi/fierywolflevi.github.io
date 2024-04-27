@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Infinite Scroll</title>
+<title>levi.tokyo</title>
 <style>
     body, html {
         margin: 0;
@@ -26,36 +26,10 @@
 </head>
 <body>
     <div id="content">
-        <!-- Your content here -->
-        <!-- This div will be populated with more content dynamically -->
+        yippe
     </div>
 
     <script>
-        let content = document.getElementById("content");
-
-        // Function to check if scrollbar reached the bottom
-        function isScrollAtBottom() {
-            return content.scrollHeight - content.clientHeight <= content.scrollTop + 1;
-        }
-
-        // Function to load more content
-        function loadMoreContent() {
-            // Add your logic here to load more content
-            // For example, you can fetch data from an API and append it to the content div
-            // Here's a simple example of appending more content
-            let moreContent = "<p>New Content</p>";
-            content.insertAdjacentHTML("beforeend", moreContent);
-        }
-
-        // Event listener for scrolling
-        content.addEventListener("scroll", function() {
-            if (isScrollAtBottom()) {
-                loadMoreContent();
-            }
-        });
-
-        // Initial load of content
-        loadMoreContent(); // You can load initial content when the page loads
     </script>
 </body>
 </html>
