@@ -1,0 +1,135 @@
+@font-face {
+    font-family: 'Arsenal';
+    font-stretch: ultra-expanded;
+    font-weight: 123;
+    src: url('fonts/Arsenal.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Cooper Black';
+    src: url('fonts/Cooper\ Black.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Bubblegum Superstar';
+    src: url('fonts/Bubblegum\ Superstar.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Times New Roman';
+    src: url('fonts/Times\ New\ Roman.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'ITC Avant Garde Gothic';
+    src: url('fonts/ITC\ Avant\ Garde\ Gothic.ttf') format('truetype');
+}
+
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: black;
+    font-family: 'Arsenal';
+    color: white;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+nav ul li {
+    float: left;
+}
+
+nav ul li a {
+    display: block;
+    padding: 20px;
+    text-decoration: none;
+    color: #fff;
+}
+
+.nav ul li a {
+    position: relative;
+    color: black; 
+    transition: color 0.3s ease;
+}
+
+.nav ul li a::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 200, 255);
+    mix-blend-mode: difference;
+    clip-path: polygon(75% 10%, 90% 25%, 40% 90%, 10% 25%);
+    transition: clip-path 0.3s ease, opacity 0.3s ease;
+    opacity: 0;
+}
+
+
+.nav ul li a:hover::after {
+    opacity: 1;
+    animation: wobble 1s ease infinite;
+}
+
+@keyframes wobble {
+    from {
+        clip-path: polygon(75% 10%, 90% 25%, 40% 90%, 10% 25%);  /* Initial position off-screen */
+    }
+    50% {
+        clip-path: polygon(70% 15%, 85% 30%, 30% 95%, 15% 20%);
+    }
+    to {
+        clip-path: polygon(75% 10%, 90% 25%, 40% 90%, 10% 25%); /* Final position */
+    }
+}
+
+
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+.split {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    pointer-events: none;
+    background-color: red;
+    clip-path: polygon(100% 0%, 100% 0%, 100% 100%, 50% 100%); /* Clip to match the diagonal split */
+    animation: slideInDiagonal 2s ease forwards; /* Apply animation */
+}
+
+.fonttext {
+    -webkit-text-fill-color: white; /* Fill the text with white */
+    text-shadow:
+        -1px -1px 0 black,  
+        1px -1px 0 black,
+        -1px 1px 0 black,
+        1px 1px 0 black; /* Add shadows to simulate border */
+}
+
+
+@keyframes slideInDiagonal {
+    from {
+        clip-path: polygon(100% 100%, 100% 0%, 0% 100%, 25% 100%);   /* Initial position off-screen */
+    }
+    to {
+        clip-path: polygon(100% 25%, 100% 0%, 100% 100%, 25% 100%); /* Final position */
+    }
+}
